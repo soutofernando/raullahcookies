@@ -42,3 +42,6 @@ next-env.d.ts
 
 # agent skills (local only)
 /agents/
+
+# accidental nested clone from tooling
+/next-bootstrap/

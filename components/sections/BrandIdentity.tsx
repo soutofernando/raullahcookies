@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { swatches } from "@/lib/brand";
@@ -103,7 +104,7 @@ export default function BrandIdentity() {
             className="relative aspect-square overflow-hidden rounded-[2rem] bg-navy transition-transform duration-200 ease-out will-change-transform"
           >
             <Image
-              src="/brand/packaging-box.webp"
+              src={assetPath("/brand/packaging-box.webp")}
               alt="Embalagem Raullah Cookies"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -112,14 +113,14 @@ export default function BrandIdentity() {
           </div>
           <div className="mt-4 grid grid-cols-2 gap-3 sm:mt-6 sm:gap-4">
             <Image
-              src="/brand/hang-tag.webp"
+              src={assetPath("/brand/hang-tag.webp")}
               alt="Tag da marca"
               width={400}
               height={400}
               className="h-28 w-full rounded-2xl object-cover sm:h-40"
             />
             <Image
-              src="/brand/logo-primary.webp"
+              src={assetPath("/brand/logo-primary.webp")}
               alt="Logo Raullah Cookies"
               width={400}
               height={400}

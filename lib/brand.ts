@@ -1,3 +1,5 @@
+import { assetPath } from "./asset-path";
+
 export const palette = {
   navy: "#0F3363",
   rose: "#E69493",
@@ -226,45 +228,45 @@ export const flavors = [
     id: "red-velvet",
     name: "Red Velvet",
     description: "Massa aveludada, recheio cremoso e pedaços de chocolate branco.",
-    image: "/brand/cookie-red-velvet.webp",
+    image: assetPath("/brand/cookie-red-velvet.webp"),
     tint: cookieTints.redVelvet,
   },
   {
     id: "ninho-oreo",
     name: "Ninho + Oreo",
     description: "Cookie denso com leite ninho e crocância de Oreo.",
-    image: "/brand/cookie-red-velvet-top.webp",
+    image: assetPath("/brand/cookie-red-velvet-top.webp"),
     tint: cookieTints.ninho,
   },
   {
     id: "dulce",
     name: "Doce de leite",
     description: "Miolo que escorre, borda crocante e toque de sal.",
-    image: "/brand/cookie-chocolate.webp",
+    image: assetPath("/brand/cookie-chocolate.webp"),
     tint: cookieTints.dulce,
   },
   {
     id: "belgian",
     name: "Chocolate belga",
     description: "Cacau intenso, gotas derretidas e cobertura de chocolate ao leite.",
-    image: "/brand/cookie-chocolate.webp",
+    image: assetPath("/brand/cookie-chocolate.webp"),
     tint: cookieTints.chocolate,
   },
 ] as const;
 
 export const gallery = [
   {
-    src: "/brand/store-counter.webp",
+    src: assetPath("/brand/store-counter.webp"),
     alt: "Balcão rosa da loja Raullah Cookies",
     caption: "Balcão",
   },
   {
-    src: "/brand/ribbon-wall.webp",
+    src: assetPath("/brand/ribbon-wall.webp"),
     alt: "Parede de laços da Raullah Cookies",
     caption: "Sweet moments",
   },
   {
-    src: "/brand/store-lounge.webp",
+    src: assetPath("/brand/store-lounge.webp"),
     alt: "Lounge azul da loja Raullah Cookies",
     caption: "Lounge",
   },

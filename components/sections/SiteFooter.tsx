@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { brand, footerNav, store, units } from "@/lib/brand";
 import { scrollToSection } from "@/lib/lenis-instance";
 import MarqueeStrip from "@/components/ui/MarqueeStrip";
@@ -15,7 +16,7 @@ export default function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-2 sm:gap-10 sm:px-6 sm:py-16 md:grid-cols-[1.3fr_repeat(2,0.7fr)_1fr]">
         <div className="sm:col-span-2 md:col-span-1">
           <Image
-            src="/brand/logo-badge.webp"
+            src={assetPath("/brand/logo-badge.webp")}
             alt={brand.name}
             width={72}
             height={72}

@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { brand, navLinks, store } from "@/lib/brand";
@@ -135,7 +136,7 @@ export default function SiteNavbar() {
           className="nav-item flex items-center gap-3"
         >
           <Image
-            src="/brand/logo-badge.webp"
+            src={assetPath("/brand/logo-badge.webp")}
             alt={brand.name}
             width={40}
             height={40}

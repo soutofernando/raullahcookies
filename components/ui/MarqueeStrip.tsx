@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { brand } from "@/lib/brand";
 
 export default function MarqueeStrip({
@@ -22,7 +23,7 @@ export default function MarqueeStrip({
               <span key={index} className="flex items-center gap-8">
                 {brand.marquee}
                 <Image
-                  src="/brand/logo-badge.webp"
+                  src={assetPath("/brand/logo-badge.webp")}
                   alt=""
                   width={36}
                   height={36}

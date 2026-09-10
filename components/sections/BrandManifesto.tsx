@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { brand } from "@/lib/brand";
@@ -73,7 +74,7 @@ export default function BrandManifesto() {
         </div>
         <div className="flex justify-center md:justify-end">
           <Image
-            src="/brand/logo-badge.webp"
+            src={assetPath("/brand/logo-badge.webp")}
             alt="Selo Homemade with love"
             width={280}
             height={280}
