@@ -49,6 +49,15 @@ body {
   display: none;
 }
 
+.filter-rail {
+  mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    #000 calc(100% - 2.75rem),
+    transparent 100%
+  );
+}
+
 ::selection {
   background: var(--rose);
   color: var(--navy);

@@ -61,21 +61,36 @@ export default function MenuBoard() {
           O que sai do forno
         </h2>
 
-        <div className="rail menu-head -mx-5 mt-6 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:mt-8 sm:flex-wrap sm:overflow-visible sm:px-0">
-          {menu.categories.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setActive(item.id)}
-              className={`shrink-0 rounded-full px-4 py-2.5 text-[11px] font-semibold tracking-[0.15em] uppercase transition-colors sm:px-5 sm:text-xs sm:tracking-[0.2em] ${
-                item.id === active
-                  ? "bg-navy text-cream"
-                  : "border border-navy/20 text-navy hover:bg-navy/5"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+        <div className="menu-head relative mt-5 w-full max-w-[17.5rem] sm:max-w-xs sm:mt-7">
+          <div
+            className="rail filter-rail flex gap-1.5 overflow-x-auto pr-8 pb-0.5"
+            role="tablist"
+            aria-label="Categorias do cardápio"
+          >
+            {menu.categories.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                role="tab"
+                aria-selected={item.id === active}
+                onClick={() => setActive(item.id)}
+                className={`shrink-0 snap-start rounded-full px-3 py-1.5 text-[10px] font-semibold tracking-[0.12em] uppercase transition-colors sm:px-3.5 sm:py-2 sm:text-[11px] sm:tracking-[0.15em] ${
+                  item.id === active
+                    ? "bg-navy text-cream"
+                    : "border border-navy/20 text-navy hover:bg-navy/5"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+          <span
+            className="pointer-events-none absolute top-1/2 right-0 flex -translate-y-1/2 items-center gap-0.5 text-[10px] font-semibold tracking-[0.12em] text-navy/50 uppercase"
+            aria-hidden
+          >
+            <span>mais</span>
+            <span className="text-base leading-none">›</span>
+          </span>
         </div>
 
         <div ref={list} className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 md:grid-cols-2">
