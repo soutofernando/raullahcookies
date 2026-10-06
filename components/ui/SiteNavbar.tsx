@@ -132,29 +132,31 @@ export default function SiteNavbar() {
         ref={header}
         className="fixed inset-x-0 top-0 z-50 px-4 pt-4 will-change-transform"
       >
-      <div className="nav-shell mx-auto flex max-w-6xl items-center justify-between rounded-full border border-cream/10 bg-navy/40 px-4 py-2.5 text-cream backdrop-blur-md md:px-6">
+      <div className="nav-shell mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-cream/10 bg-navy/40 px-4 py-2.5 text-cream backdrop-blur-md lg:gap-4 lg:px-6">
         <button
           type="button"
           onClick={() => go("hero")}
-          className="nav-item flex items-center gap-3"
+          className="nav-item flex min-w-0 shrink-0 items-center gap-2 sm:gap-3"
         >
           <Image
             src={assetPath("/brand/logo-badge.webp")}
             alt={brand.name}
             width={40}
             height={40}
-            className="size-9 rounded-full object-cover"
+            className="block size-9 shrink-0 rounded-full object-cover"
           />
-          <span className="font-script text-2xl leading-none">Raullah</span>
+          <span className="nav-brand-name font-script text-lg leading-none whitespace-nowrap sm:text-xl lg:text-2xl">
+            {brand.name}
+          </span>
         </button>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-4 lg:flex xl:gap-7">
           {navLinks.map((link) => (
             <button
               key={link.id}
               type="button"
               onClick={() => go(link.id)}
-              className="nav-item group relative text-xs font-semibold tracking-[0.2em] uppercase"
+              className="nav-item group relative shrink-0 text-[10px] font-semibold tracking-[0.16em] uppercase lg:text-xs lg:tracking-[0.2em]"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-blush transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
@@ -166,7 +168,7 @@ export default function SiteNavbar() {
           href={place.menuUrl}
           content="nav-cardapio"
           event="InitiateCheckout"
-          className="nav-item hidden rounded-full bg-blush px-5 py-2.5 text-xs font-semibold tracking-[0.2em] text-navy uppercase transition-colors hover:bg-rose md:block"
+          className="nav-item hidden shrink-0 rounded-full bg-blush px-4 py-2.5 text-[10px] font-semibold tracking-[0.16em] text-navy uppercase transition-colors hover:bg-rose lg:block lg:px-5 lg:text-xs lg:tracking-[0.2em]"
         >
           Ver o cardápio
         </OutboundLink>
@@ -176,7 +178,7 @@ export default function SiteNavbar() {
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
-          className="nav-item flex size-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="nav-item flex size-10 shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
         >
           <span
             className={`block h-px w-6 bg-cream transition-transform duration-300 ${
@@ -196,7 +198,7 @@ export default function SiteNavbar() {
       <div
         ref={menu}
         style={{ display: "none" }}
-        className="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-6 overflow-y-auto bg-navy px-6 py-24 text-cream md:!hidden"
+        className="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-6 overflow-y-auto bg-navy px-6 py-24 text-cream lg:!hidden"
       >
         {navLinks.map((link) => (
           <button

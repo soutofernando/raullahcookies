@@ -43,6 +43,12 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Great Vibes metrics sit high; optical center next to the round logo. */
+.nav-brand-name {
+  display: block;
+  transform: translateY(0.18em);
+}
+
 /* Horizontal card rails: native momentum, no visible scrollbar. */
 .rail {
   scrollbar-width: none;

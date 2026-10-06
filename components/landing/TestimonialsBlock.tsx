@@ -1,6 +1,7 @@
 import type { PublicPlace } from "@/lib/cardapio";
 import { testimonials } from "@/lib/landing";
 import Rise from "@/components/landing/Rise";
+import { IfoodIcon } from "@/components/ui/PlatformIcons";
 
 function QuoteCard({
   quote,
@@ -42,10 +43,14 @@ export default function TestimonialsBlock({ place }: { place: PublicPlace | null
           <h2 className="max-w-md text-3xl font-semibold tracking-tight sm:text-4xl">
             Quem já pediu, pede de novo.
           </h2>
-          <p className="rounded-full border border-cream/20 px-4 py-2 text-sm">
-            <span aria-hidden="true">★★★★★</span>{" "}
+          <p className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-4 py-2 text-sm">
+            <span aria-hidden="true">★★★★★</span>
             <span className="font-semibold">4,9</span>
-            <span className="text-cream/60"> no iFood</span>
+            <span className="inline-flex items-center gap-1.5 text-cream/60">
+              no
+              <IfoodIcon className="size-5" />
+              <span className="sr-only">iFood</span>
+            </span>
           </p>
         </Rise>
 

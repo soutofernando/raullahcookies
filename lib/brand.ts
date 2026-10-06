@@ -41,6 +41,12 @@ function cardapioMenuUrl() {
   return `https://app.cardapioweb.com/${code.replace(/^\/+|\/+$/g, "")}`;
 }
 
+function googleReviewsUrl() {
+  const explicit = process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL?.trim();
+  if (explicit) return explicit;
+  return "https://www.google.com/maps";
+}
+
 // TODO: substituir pelos links e contatos reais da loja.
 export const store = {
   headline: "A loja",
@@ -50,6 +56,7 @@ export const store = {
   instagram: "https://instagram.com/",
   ifood: "https://www.ifood.com.br/",
   whatsapp: "https://wa.me/",
+  googleReviews: googleReviewsUrl(),
   menuUrl: cardapioMenuUrl(),
 };
 
