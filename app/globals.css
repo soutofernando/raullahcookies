@@ -27,9 +27,13 @@
 
 html,
 body {
-  background: var(--cream);
-  color: var(--navy);
+  background: var(--navy);
+  color: var(--cream);
   min-height: 100%;
+}
+
+html {
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -58,6 +62,10 @@ body {
   );
 }
 
+summary::-webkit-details-marker {
+  display: none;
+}
+
 ::selection {
   background: var(--rose);
   color: var(--navy);
@@ -81,6 +89,25 @@ body {
   }
 }
 
+.dot-field {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--rose) 70%, transparent) 1.15px,
+    transparent 1.25px
+  );
+  background-size: 16px 16px;
+}
+
+.arch-veil {
+  background-image: radial-gradient(
+    circle at 50% 130%,
+    transparent 42%,
+    color-mix(in srgb, var(--navy) 7%, transparent) 43% 58%,
+    transparent 59%
+  );
+  background-size: 84px 46px;
+}
+
 .arch-pattern {
   background-color: var(--navy);
   background-image: radial-gradient(
@@ -92,19 +119,205 @@ body {
   background-size: 48px 32px;
 }
 
+.quote-window {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+.quote-rise,
+.quote-fall {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.quote-rise {
+  animation-name: quote-rise;
+  animation-duration: 36s;
+}
+
+.quote-fall {
+  animation-name: quote-fall;
+  animation-duration: 42s;
+}
+
+.quote-window:hover .quote-rise,
+.quote-window:hover .quote-fall {
+  animation-play-state: paused;
+}
+
+.rise-item {
+  opacity: 0;
+  transform: translateY(2.75rem);
+}
+
+.rise-item.is-shown {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.seal-float {
+  animation: seal-float 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
   animation: marquee 28s linear infinite;
 }
 
+.menu-pop {
+  animation: menu-pop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-fade {
+  animation: menu-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cart-slide {
+  animation: cart-slide 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cookie-swing {
+  transform-origin: 50% 0;
+  animation: cookie-swing 2.6s ease-in-out infinite;
+}
+
+.icon-bob {
+  animation: icon-bob 3.4s ease-in-out infinite;
+}
+
+.lift-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lift-card:hover {
+  transform: translateY(-6px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-track,
+  .quote-rise,
+  .quote-fall,
+  .seal-float,
+  .menu-pop,
+  .menu-fade,
+  .cart-slide,
+  .cookie-swing,
+  .icon-bob,
+  .lift-card,
+  .lift-card:hover {
     animation: none;
+    transform: none;
+  }
+
+  .rise-item,
+  .rise-item.is-shown {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   html {
     scroll-behavior: auto;
+  }
+}
+
+@keyframes quote-rise {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes quote-fall {
+  from {
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes menu-pop {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes menu-fade {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cart-slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(2.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes seal-float {
+  0%,
+  100% {
+    transform: translateY(0) rotateY(-10deg);
+  }
+  50% {
+    transform: translateY(-12px) rotateY(14deg);
+  }
+}
+
+@keyframes cookie-swing {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes icon-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
   }
 }
 

@@ -25,12 +25,21 @@ export const brand = {
 } as const;
 
 export const navLinks = [
-  { id: "manifesto", label: "A marca" },
-  { id: "menu", label: "Cardápio" },
-  { id: "how-to-order", label: "Como pedir" },
-  { id: "gallery", label: "A loja" },
-  { id: "units", label: "Unidades" },
+  { id: "cardapio", label: "Cardápio" },
+  { id: "historia", label: "A história" },
+  { id: "depoimentos", label: "Depoimentos" },
+  { id: "faq", label: "Dúvidas" },
 ] as const;
+
+function cardapioMenuUrl() {
+  const explicit = process.env.NEXT_PUBLIC_CARDAPIO_WEB_MENU_URL?.trim();
+  if (explicit) return explicit;
+
+  const code = process.env.NEXT_PUBLIC_CARDAPIO_WEB_STORE_CODE?.trim();
+  if (!code) return "https://wa.me/";
+  if (/^https?:\/\//i.test(code)) return code.replace(/\/+$/, "");
+  return `https://app.cardapioweb.com/${code.replace(/^\/+|\/+$/g, "")}`;
+}
 
 // TODO: substituir pelos links e contatos reais da loja.
 export const store = {
@@ -41,7 +50,7 @@ export const store = {
   instagram: "https://instagram.com/",
   ifood: "https://www.ifood.com.br/",
   whatsapp: "https://wa.me/",
-  menuUrl: "https://wa.me/",
+  menuUrl: cardapioMenuUrl(),
 };
 
 export const units = [
@@ -206,19 +215,19 @@ export const footerNav = [
   {
     title: "Navegar",
     links: [
-      { label: "A marca", id: "manifesto" },
-      { label: "Sabores", id: "flavors" },
-      { label: "Cardápio", id: "menu" },
-      { label: "Como pedir", id: "how-to-order" },
+      { label: "Cardápio", id: "cardapio" },
+      { label: "A história", id: "historia" },
+      { label: "Benefícios", id: "beneficios" },
+      { label: "Depoimentos", id: "depoimentos" },
     ],
   },
   {
-    title: "Visitar",
+    title: "Pedido",
     links: [
-      { label: "A loja", id: "gallery" },
-      { label: "Identidade", id: "identity" },
-      { label: "Unidades", id: "units" },
-      { label: "Newsletter", id: "newsletter" },
+      { label: "Caixas", id: "caixas" },
+      { label: "Garantia", id: "garantia" },
+      { label: "Dúvidas", id: "faq" },
+      { label: "Privacidade", id: "privacidade" },
     ],
   },
 ] as const;

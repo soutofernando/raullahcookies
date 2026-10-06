@@ -34,6 +34,11 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
+          CARDAPIO_WEB_TOKEN: ${{ secrets.CARDAPIO_WEB_TOKEN }}
+          CARDAPIO_WEB_PARTNER_KEY: ${{ secrets.CARDAPIO_WEB_PARTNER_KEY }}
+          CARDAPIO_WEB_AUTH: ${{ secrets.CARDAPIO_WEB_AUTH }}
+          NEXT_PUBLIC_CARDAPIO_WEB_STORE_CODE: ${{ secrets.CARDAPIO_WEB_STORE_CODE }}
+          NEXT_PUBLIC_CARDAPIO_WEB_MENU_URL: ${{ secrets.CARDAPIO_WEB_MENU_URL }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -15,9 +15,9 @@ const script = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Raullah Cookies",
+  title: "Raullah Cookies — cookie grande, macio por dentro, feito à mão",
   description:
-    "Landing page da Raullah Cookies — cookies artesanais, feitos em casa e sentidos no coração.",
+    "Crocante por fora, macio por dentro e do tamanho que cookie de verdade tem. Mais de 50 sabores em Campina Grande. Retirada ou delivery.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${outfit.variable} ${script.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-cream font-sans text-navy">
+      <body className="min-h-full bg-navy font-sans text-cream">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

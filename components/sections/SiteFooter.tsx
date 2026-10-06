@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import { assetPath } from "@/lib/asset-path";
-import { brand, footerNav, store, units } from "@/lib/brand";
+import { brand, footerNav, store } from "@/lib/brand";
+import { usePlace } from "@/components/landing/PlaceProvider";
 import { scrollToSection } from "@/lib/lenis-instance";
 import MarqueeStrip from "@/components/ui/MarqueeStrip";
+import PaymentMethods from "@/components/landing/PaymentMethods";
 
 export default function SiteFooter() {
   const year = new Date().getFullYear();
+  const place = usePlace();
 
   return (
     <footer className="relative z-[2] bg-navy text-cream">
@@ -24,7 +27,7 @@ export default function SiteFooter() {
           />
           <p className="mt-5 font-script text-4xl">{brand.name}</p>
           <p className="mt-3 max-w-xs text-sm text-cream/70">
-            {brand.manifesto}. {brand.tagline}.
+            Cookies grandes, feitos à mão em Campina Grande. {brand.seal}.
           </p>
         </div>
 
@@ -52,21 +55,42 @@ export default function SiteFooter() {
         <div>
           <h2 className="text-xs tracking-[0.3em] uppercase text-rose">Contato</h2>
           <ul className="mt-4 space-y-2.5 text-sm text-cream/75">
-            <li>{units[0].address}</li>
-            <li>{store.phone}</li>
-            <li className="break-words">{store.email}</li>
+            <li>{place.addressLine || `${place.city} e região`}</li>
+            {place.hoursLine ? <li>{place.hoursLine}</li> : null}
+            <li>{place.serviceLine}</li>
           </ul>
+          <div className="mt-4">
+            <PaymentMethods kinds={place.payments} tone="cream" />
+          </div>
           <div className="mt-5 flex flex-wrap gap-3 text-xs tracking-[0.2em] uppercase">
-            <a href={store.instagram} className="hover:text-rose">
-              Instagram
-            </a>
-            <a href={store.whatsapp} className="hover:text-rose">
-              WhatsApp
-            </a>
+            {place.instagramUrl ? (
+              <a href={place.instagramUrl} className="hover:text-rose">
+                Instagram
+              </a>
+            ) : null}
+            {place.whatsappUrl ? (
+              <a href={place.whatsappUrl} className="hover:text-rose">
+                WhatsApp
+              </a>
+            ) : null}
             <a href={store.ifood} className="hover:text-rose">
               iFood
             </a>
           </div>
+        </div>
+      </div>
+
+      <div id="privacidade" className="scroll-mt-24 border-t border-cream/15">
+        <div className="mx-auto max-w-6xl px-5 py-8 text-sm leading-relaxed text-cream/70 sm:px-6">
+          <h2 className="text-xs tracking-[0.3em] text-rose uppercase">
+            Privacidade
+          </h2>
+          <p className="mt-3 max-w-3xl">
+            Esta página não tem formulário. Se você aceitar os cookies de medição,
+            o Meta Pixel e o Google Analytics registram a visita e os cliques de
+            saída para o cardápio, o iFood e o WhatsApp. Dá para recusar e seguir
+            navegando. Os pedidos são concluídos no Cardápio Web ou no iFood.
+          </p>
         </div>
       </div>
 

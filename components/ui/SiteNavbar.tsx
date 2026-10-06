@@ -5,12 +5,15 @@ import Image from "next/image";
 import { assetPath } from "@/lib/asset-path";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { brand, navLinks, store } from "@/lib/brand";
+import { brand, navLinks } from "@/lib/brand";
+import { usePlace } from "@/components/landing/PlaceProvider";
+import OutboundLink from "@/components/landing/OutboundLink";
 import { lockScroll, scrollToSection } from "@/lib/lenis-instance";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SiteNavbar() {
+  const place = usePlace();
   const header = useRef<HTMLElement>(null);
   const menu = useRef<HTMLDivElement>(null);
   const hideRef = useRef<gsap.core.Tween | null>(null);
@@ -32,9 +35,9 @@ export default function SiteNavbar() {
       });
 
       const solid = gsap.to(".nav-shell", {
-        backgroundColor: "rgba(253, 217, 217, 0.82)",
-        borderColor: "rgba(15, 51, 99, 0.12)",
-        boxShadow: "0 10px 30px rgba(15, 51, 99, 0.08)",
+        backgroundColor: "rgba(15, 51, 99, 0.92)",
+        borderColor: "rgba(253, 217, 217, 0.16)",
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.22)",
         duration: 0.3,
         paused: true,
         ease: "power2.out",
@@ -129,7 +132,7 @@ export default function SiteNavbar() {
         ref={header}
         className="fixed inset-x-0 top-0 z-50 px-4 pt-4 will-change-transform"
       >
-      <div className="nav-shell mx-auto flex max-w-6xl items-center justify-between rounded-full border border-transparent px-4 py-2.5 backdrop-blur-md md:px-6">
+      <div className="nav-shell mx-auto flex max-w-6xl items-center justify-between rounded-full border border-cream/10 bg-navy/40 px-4 py-2.5 text-cream backdrop-blur-md md:px-6">
         <button
           type="button"
           onClick={() => go("hero")}
@@ -154,17 +157,19 @@ export default function SiteNavbar() {
               className="nav-item group relative text-xs font-semibold tracking-[0.2em] uppercase"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-navy transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
+              <span className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-blush transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
             </button>
           ))}
         </nav>
 
-        <a
-          href={store.instagram}
-          className="nav-item hidden rounded-full bg-navy px-5 py-2.5 text-xs font-semibold tracking-[0.2em] text-cream uppercase transition-colors hover:bg-rose hover:text-navy md:block"
+        <OutboundLink
+          href={place.menuUrl}
+          content="nav-cardapio"
+          event="InitiateCheckout"
+          className="nav-item hidden rounded-full bg-blush px-5 py-2.5 text-xs font-semibold tracking-[0.2em] text-navy uppercase transition-colors hover:bg-rose md:block"
         >
-          Peça já
-        </a>
+          Ver o cardápio
+        </OutboundLink>
 
         <button
           type="button"
@@ -174,12 +179,12 @@ export default function SiteNavbar() {
           className="nav-item flex size-10 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
-            className={`block h-px w-6 bg-navy transition-transform duration-300 ${
+            className={`block h-px w-6 bg-cream transition-transform duration-300 ${
               open ? "translate-y-[3.5px] rotate-45" : ""
             }`}
           />
           <span
-            className={`block h-px w-6 bg-navy transition-transform duration-300 ${
+            className={`block h-px w-6 bg-cream transition-transform duration-300 ${
               open ? "-translate-y-[3.5px] -rotate-45" : ""
             }`}
           />
@@ -191,7 +196,7 @@ export default function SiteNavbar() {
       <div
         ref={menu}
         style={{ display: "none" }}
-        className="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-6 overflow-y-auto bg-cream px-6 py-24 md:!hidden"
+        className="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-6 overflow-y-auto bg-navy px-6 py-24 text-cream md:!hidden"
       >
         {navLinks.map((link) => (
           <button
@@ -203,12 +208,14 @@ export default function SiteNavbar() {
             {link.label}
           </button>
         ))}
-        <a
-          href={store.instagram}
-          className="mobile-link mt-4 rounded-full bg-navy px-8 py-3 text-xs font-semibold tracking-[0.25em] text-cream uppercase"
+        <OutboundLink
+          href={place.menuUrl}
+          content="menu-mobile-cardapio"
+          event="InitiateCheckout"
+          className="mobile-link mt-4 rounded-full bg-blush px-8 py-3 text-xs font-semibold tracking-[0.25em] text-navy uppercase"
         >
-          Peça já
-        </a>
+          Ver o cardápio
+        </OutboundLink>
       </div>
     </>
   );
