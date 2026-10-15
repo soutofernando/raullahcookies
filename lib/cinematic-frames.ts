@@ -20,7 +20,7 @@ export function cinematicPixelSize(cssWidth: number, cssHeight: number, devicePi
 export function cinematicFrameSrc(index: number, mobile = false) {
   const frame = String(index + 1).padStart(3, "0");
   const folder = mobile ? "frames-mobile" : "frames";
-  return assetPath(`/scroll/${folder}/frame-${frame}.jpg`);
+  return assetPath(`/scroll/${folder}/frame-${frame}.webp`);
 }
 
 /** Cover fills the canvas. Contain keeps the whole frame, used for the vertical mobile video. */
