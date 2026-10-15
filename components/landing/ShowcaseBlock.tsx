@@ -85,7 +85,7 @@ function LiveShowcase({
   return (
     <TrackWhenVisible event="ViewContent" content="vitrine">
       <section id="cardapio" className="scroll-mt-24 bg-cream text-navy">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
           <Rise>
             <p className="text-[11px] font-semibold tracking-[0.28em] text-rose uppercase">
               Vitrine
@@ -140,7 +140,7 @@ function StaticShowcase() {
   return (
     <TrackWhenVisible event="ViewContent" content="vitrine">
       <section id="cardapio" className="scroll-mt-24 bg-cream text-navy">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
           <Rise>
             <p className="text-[11px] font-semibold tracking-[0.28em] text-rose uppercase">
               Vitrine

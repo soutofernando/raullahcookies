@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { MenuCategory, MenuProduct } from "@/lib/cardapio";
 import OutboundLink from "@/components/landing/OutboundLink";
+import Rise from "@/components/landing/Rise";
 
 const pageSize = 12;
 
@@ -227,6 +228,7 @@ export default function MenuBrowser({ categories }: { categories: MenuCategory[]
 function ProductCard({ product }: { product: MenuProduct }) {
   return (
     <li className="h-full">
+      <Rise className="h-full">
       <OutboundLink
         href={product.href}
         content={`produto-${product.id}`}
@@ -268,6 +270,7 @@ function ProductCard({ product }: { product: MenuProduct }) {
           </span>
         </span>
       </OutboundLink>
+      </Rise>
     </li>
   );
 }

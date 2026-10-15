@@ -25,29 +25,56 @@ export default function SiteNavbar() {
     if (!el) return;
 
     const ctx = gsap.context(() => {
-      gsap.from(".nav-item", {
-        y: -24,
-        opacity: 0,
-        stagger: 0.07,
-        duration: 0.7,
-        ease: "power3.out",
-        delay: 0.2,
-      });
-
       const solid = gsap.to(".nav-shell", {
         backgroundColor: "rgba(15, 51, 99, 0.92)",
         borderColor: "rgba(253, 217, 217, 0.16)",
         boxShadow: "0 10px 30px rgba(0, 0, 0, 0.22)",
-        duration: 0.3,
+        duration: 0.45,
         paused: true,
         ease: "power2.out",
       });
 
-      ScrollTrigger.create({
-        start: 80,
-        end: "max",
-        onToggle: (self) => (self.isActive ? solid.play() : solid.reverse()),
-      });
+      const scene = document.getElementById("cena");
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const phone = window.matchMedia("(max-width: 1023px)").matches;
+      let revealed = reduced || !scene || phone;
+      let allowHide = false;
+
+      if (revealed) {
+        gsap.set(el, { autoAlpha: 1, yPercent: 0 });
+        solid.progress(1);
+      } else {
+        gsap.set(el, { autoAlpha: 0, yPercent: -120 });
+      }
+
+      if (scene && !reduced && !phone) {
+        ScrollTrigger.create({
+          trigger: scene,
+          start: "bottom bottom",
+          onEnter: () => {
+            revealed = true;
+            gsap.to(el, {
+              autoAlpha: 1,
+              yPercent: 0,
+              duration: 0.6,
+              ease: "power3.out",
+              overwrite: "auto",
+            });
+            solid.play();
+          },
+          onLeaveBack: () => {
+            revealed = false;
+            allowHide = false;
+            gsap.to(el, {
+              autoAlpha: 0,
+              yPercent: -120,
+              duration: 0.35,
+              ease: "power2.in",
+              overwrite: "auto",
+            });
+          },
+        });
+      }
 
       const hide = gsap.to(el, {
         yPercent: -140,
@@ -57,10 +84,12 @@ export default function SiteNavbar() {
       });
 
       ScrollTrigger.create({
-        start: 200,
+        start: 0,
         end: "max",
         onUpdate: (self) => {
-          if (openRef.current) return;
+          if (!revealed || openRef.current) return;
+          if (self.direction === -1) allowHide = true;
+          if (!allowHide) return;
           if (self.direction === 1) hide.play();
           else hide.reverse();
         },
@@ -130,12 +159,12 @@ export default function SiteNavbar() {
     <>
       <header
         ref={header}
-        className="fixed inset-x-0 top-0 z-50 px-4 pt-4 will-change-transform"
+        className="site-header fixed inset-x-0 top-0 z-50 px-4 pt-4 invisible max-lg:visible"
       >
-      <div className="nav-shell mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-cream/10 bg-navy/40 px-4 py-2.5 text-cream backdrop-blur-md lg:gap-4 lg:px-6">
+      <div className="nav-shell mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-transparent bg-transparent px-4 py-2.5 text-cream lg:gap-4 lg:px-6">
         <button
           type="button"
-          onClick={() => go("hero")}
+          onClick={() => go("cena")}
           className="nav-item flex min-w-0 shrink-0 items-center gap-2 sm:gap-3"
         >
           <Image

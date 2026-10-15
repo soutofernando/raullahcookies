@@ -327,6 +327,22 @@ summary::-webkit-details-marker {
   }
 }
 
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+.scroll-cue {
+  animation: scroll-cue 1.35s ease-in-out infinite;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -334,4 +350,62 @@ summary::-webkit-details-marker {
   to {
     transform: translateX(-50%);
   }
+}
+
+.cinematic-stage {
+  height: 100vh;
+  height: 100dvh;
+}
+
+.cinematic-stage canvas {
+  image-rendering: auto;
+}
+
+.film-chapters {
+  margin-top: -100vh;
+  margin-top: -100dvh;
+}
+
+.film-spacer {
+  height: 100vh;
+  height: 100dvh;
+}
+
+@media (max-width: 1023px) {
+  .site-header {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 767px) {
+  .cinematic-stage {
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+
+  .film-chapters {
+    margin-top: calc(100% * -16 / 9);
+  }
+
+  .film-spacer {
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-chapters {
+    margin-top: 0;
+  }
+}
+
+[data-film] section {
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+[data-film] .dot-field,
+[data-film] .hero-portrait {
+  display: none;
 }

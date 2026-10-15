@@ -16,9 +16,12 @@ export default function Rise({
   useLayoutEffect(() => {
     const node = ref.current;
     if (!node) return;
-    node.classList.add("rise-item");
+
+    if (node.closest("[data-film]")) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    node.classList.add("rise-item");
     let timer = 0;
     const reveal = () => {
       timer = window.setTimeout(() => node.classList.add("is-shown"), delay);

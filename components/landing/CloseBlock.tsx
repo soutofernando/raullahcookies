@@ -7,7 +7,7 @@ export default function CloseBlock({ place }: { place: PublicPlace | null }) {
   const menuUrl = place?.menuUrl ?? store.menuUrl;
   return (
     <section id="fechar" className="scroll-mt-24 bg-cream text-navy">
-      <div className="arch-veil mx-auto max-w-3xl px-5 py-16 text-center sm:px-6 sm:py-24">
+      <div className="arch-veil mx-auto max-w-3xl px-5 py-10 text-center sm:px-6 sm:py-14">
         <Rise>
         <h2 className="text-3xl leading-tight font-semibold tracking-tight sm:text-5xl">
           Imagina abrir a caixa, sentir o cheiro de cookie fresquinho e escolher por

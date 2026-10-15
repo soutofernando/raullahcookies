@@ -37,7 +37,7 @@ function QuoteColumn({ reverse = false }: { reverse?: boolean }) {
 
 export default function TestimonialsBlock({ place }: { place: PublicPlace | null }) {
   return (
-    <section id="depoimentos" className="scroll-mt-24 px-5 py-16 sm:px-6 sm:py-24">
+    <section id="depoimentos" className="scroll-mt-24 px-5 py-10 sm:px-6 sm:py-14">
       <div className="mx-auto max-w-6xl">
         <Rise className="flex flex-wrap items-end justify-between gap-4">
           <h2 className="max-w-md text-3xl font-semibold tracking-tight sm:text-4xl">

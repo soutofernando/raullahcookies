@@ -4,7 +4,7 @@ import Rise from "@/components/landing/Rise";
 export default function PainBlock() {
   return (
     <section id="vontade" className="scroll-mt-24 px-5 py-16 sm:px-6 sm:py-24">
-      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+      <div className="mx-auto grid max-w-xl gap-8">
         <Rise>
         <h2 className="max-w-md text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
           Sabe aquela vontade de um cookie de verdade, daqueles que você lembra no
