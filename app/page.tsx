@@ -10,14 +10,14 @@ import SolutionBlock from "@/components/landing/SolutionBlock";
 import BenefitsBlock from "@/components/landing/BenefitsBlock";
 import ShowcaseBlock from "@/components/landing/ShowcaseBlock";
 import FounderBlock from "@/components/landing/FounderBlock";
+import EventsBlock from "@/components/landing/EventsBlock";
+import StoreBlock from "@/components/landing/StoreBlock";
 import TestimonialsBlock from "@/components/landing/TestimonialsBlock";
 import GuaranteeBlock from "@/components/landing/GuaranteeBlock";
 import FaqBlock from "@/components/landing/FaqBlock";
-import UrgencyBlock from "@/components/landing/UrgencyBlock";
 import CloseBlock from "@/components/landing/CloseBlock";
 import ReviewBlock from "@/components/landing/ReviewBlock";
 import CookieNotice from "@/components/landing/CookieNotice";
-import StickyOrderBar from "@/components/landing/StickyOrderBar";
 import PlaceProvider from "@/components/landing/PlaceProvider";
 import { getCardapio } from "@/lib/cardapio";
 
@@ -28,7 +28,7 @@ export default async function Home() {
     <PlaceProvider place={place}>
       <Analytics />
       <SiteNavbar />
-      <main className="pb-28 md:pb-0">
+      <main>
         <CinematicScroll>
           <FilmChapter from="down" anchor="left">
             <HeroBlock place={place} />
@@ -45,13 +45,14 @@ export default async function Home() {
         </CinematicScroll>
         <Scene>
           <FounderBlock />
+          <EventsBlock />
+          <StoreBlock />
           <TestimonialsBlock place={place} />
           <ShowcaseBlock catalog={cardapio?.catalog ?? null} place={place} />
         </Scene>
         <Scene>
           <GuaranteeBlock place={place} />
           <FaqBlock />
-          <UrgencyBlock place={place} />
           <CloseBlock place={place} />
         </Scene>
         <ReviewBlock />
@@ -61,7 +62,6 @@ export default async function Home() {
         <div className="pointer-events-auto">
           <CookieNotice />
         </div>
-        <StickyOrderBar />
       </div>
     </PlaceProvider>
   );

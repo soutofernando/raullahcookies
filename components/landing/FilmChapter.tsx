@@ -46,7 +46,8 @@ export default function FilmChapter({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const apply = (progress: number) => {
-      const rise = Math.min(320, Math.round(window.innerHeight * 0.46));
+      const rise =
+        window.innerWidth < 640 ? 0 : Math.min(320, Math.round(window.innerHeight * 0.46));
       const { fade, x, y } = shift(from, progress, rise);
       panel.style.opacity = fade.toFixed(3);
       panel.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
@@ -72,7 +73,7 @@ export default function FilmChapter({
     <div
       ref={rootRef}
       data-film=""
-      className={`flex min-h-svh items-center py-12 ${
+      className={`flex items-center py-[4svh] sm:min-h-svh sm:py-12 ${
         anchor === "left"
           ? "justify-start pr-4 pl-20"
           : anchor === "right"
@@ -82,7 +83,7 @@ export default function FilmChapter({
     >
       <div
         ref={panelRef}
-        className={`w-full rounded-[2rem] px-6 py-8 shadow-[0_24px_80px_rgba(8,16,32,0.28)] sm:px-10 sm:py-10 ${
+        className={`w-full rounded-[2rem] px-5 py-5 shadow-[0_24px_80px_rgba(8,16,32,0.28)] sm:px-10 sm:py-10 ${
           wide ? "max-w-5xl" : "max-w-lg"
         } ${
           tone === "light"

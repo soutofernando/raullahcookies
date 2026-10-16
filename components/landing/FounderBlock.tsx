@@ -5,19 +5,9 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { assetPath } from "@/lib/asset-path";
+import { scrollToSection } from "@/lib/lenis-instance";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const steps = [
-  {
-    label: "Em casa",
-    text: "Cozinheira, forno próprio e os primeiros cookies, fornada por fornada.",
-  },
-  {
-    label: "A loja",
-    text: "A cozinha de casa virou loja física. O cookie continua saindo da mão dela.",
-  },
-];
 
 export default function FounderBlock() {
   const rootRef = useRef<HTMLElement>(null);
@@ -104,7 +94,7 @@ export default function FounderBlock() {
             className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-navy/10"
           >
             <Image
-              src={assetPath("/raullah/0L8A5615.jpg")}
+              src={assetPath("/raullah/raullah-em-casa.webp")}
               alt="Raullah, cozinheira da Raullah Cookies, segurando um prato de cookies com o avental da marca"
               fill
               sizes="(min-width: 1024px) 36vw, 90vw"
@@ -117,7 +107,7 @@ export default function FounderBlock() {
           >
             <div className="relative aspect-[3/4] bg-navy/10">
               <Image
-                src={assetPath("/raullah/0L8A5312.jpg")}
+                src={assetPath("/brand/loja-externo.webp")}
                 alt="Raullah, dona da Raullah Cookies"
                 fill
                 sizes="(min-width: 1024px) 16vw, 40vw"
@@ -138,36 +128,31 @@ export default function FounderBlock() {
             data-founder-line=""
             className="mt-4 max-w-md text-2xl leading-snug font-semibold tracking-tight sm:text-3xl"
           >
-            Da cozinha de casa até a loja física.
+            Uma história que continua a ser feita à mão.
           </p>
           <div
             data-founder-line=""
             className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-navy/80"
           >
             <p>
-              Raullah é a cozinheira da marca. Começou fazendo cookies em casa, no
-              forno da própria cozinha.
+              Desde os primeiros cookies feitos em casa até cada fornada de hoje, a
+              essência permanece a mesma: cuidado em cada detalhe, receitas que
+              conquistam e o desejo de tornar cada experiência especial.
             </p>
             <p>
-              O pedido foi crescendo até a cozinha virar loja. O endereço mudou. Quem
-              assa continua sendo ela.
+              A Raullah Cookies cresceu, ganhou um novo espaço e segue criando o que
+              sempre esteve no centro de tudo: cookies feitos para serem lembrados.
             </p>
           </div>
-
-          <ol className="mt-8 grid gap-3 sm:grid-cols-2">
-            {steps.map((step, index) => (
-              <li
-                key={step.label}
-                data-founder-line=""
-                className="rounded-3xl border border-navy/10 bg-white/55 px-5 py-4"
-              >
-                <p className="text-xs font-semibold tracking-[0.18em] text-rose uppercase">
-                  0{index + 1} · {step.label}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-navy/80">{step.text}</p>
-              </li>
-            ))}
-          </ol>
+          <div data-founder-line="">
+            <button
+              type="button"
+              onClick={() => scrollToSection("cardapio")}
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-navy px-8 py-4 text-sm font-semibold text-cream transition-colors hover:bg-navy/90"
+            >
+              Descubra nossos sabores
+            </button>
+          </div>
         </div>
       </div>
     </section>

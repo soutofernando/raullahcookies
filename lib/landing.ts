@@ -13,28 +13,33 @@ export const stats = [
   { value: "quase 7 anos", label: "de história" },
 ] as const;
 
-export const pains = [
-  "Veio pequeno, seco e sem graça, e você pagou como se fosse especial.",
-  "O delivery chegou frio, amassado ou com cara de dia anterior.",
-  "Deu a primeira mordida e pensou: “era só isso?”",
+export const highlights = [
+  {
+    title: "Textura que conquista",
+    text: "Levemente crocante por fora, macio por dentro.",
+  },
+  {
+    title: "Sabores que surpreendem",
+    text: "Combinações marcantes, receitas autorais e recheios irresistíveis.",
+  },
+  {
+    title: "Momentos que ficam",
+    text: "Um convite para desacelerar e aproveitar cada mordida.",
+  },
 ] as const;
 
 export const benefits = [
   {
-    title: "Cookie grande de verdade",
-    text: "Uma mordida que enche a boca e anima o dia.",
+    title: "Textura que conquista",
+    text: "Casquinha delicada, interior macio e uma experiência que dá vontade de repetir.",
   },
   {
-    title: "Mais de 50 sabores",
-    text: "Sempre tem um clássico pra voltar e uma novidade pra descobrir.",
+    title: "Sabores com personalidade",
+    text: "Dos clássicos às combinações autorais, sempre há um novo favorito à espera.",
   },
   {
-    title: "Presente pronto",
-    text: "Escolha a caixa de 4, 6 ou 10 e surpreenda sem sair de casa.",
-  },
-  {
-    title: "Retirada ou delivery",
-    text: "Você escolhe o que combina com o seu dia.",
+    title: "Feitos para presentear",
+    text: "Caixas de 4, 6 ou 10 cookies para transformar pequenos gestos em momentos especiais.",
   },
 ] as const;
 
@@ -107,6 +112,56 @@ export const boxes = [
   },
 ] as const;
 
+export const storeVisit = {
+  title: "Hoje temos um espaço minimalista e acolhedor para te receber",
+  address: "Rua João Quirino, 864, Catolé",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Raullah%20Cookies%2C%20Rua%20Jo%C3%A3o%20Quirino%2C%20864%2C%20Catol%C3%A9%2C%20Campina%20Grande",
+  ingredients:
+    "Usamos ingredientes de alta qualidade, manteiga extra e também de fornecedores locais (buscando valorizar o nosso), chocolates nobres e de origem belga.",
+  photos: [
+    {
+      src: assetPath("/brand/loja-externo.webp"),
+      alt: "Fachada da loja física da Raullah Cookies, com letreiro azul e rosa",
+    },
+    {
+      src: assetPath("/brand/loja-interno.webp"),
+      alt: "Interior da loja, com a vitrine de cookies e as mesas junto à janela",
+    },
+    {
+      src: assetPath("/general/na-loja.webp"),
+      alt: "Raullah no balcão da loja física",
+    },
+  ],
+} as const;
+
+export const cityMoments = [
+  {
+    src: assetPath("/general/clientes.webp"),
+    alt: "Clientes com a Raullah Cookies",
+  },
+  {
+    src: assetPath("/general/cozinhando.webp"),
+    alt: "Preparo dos cookies na cozinha da Raullah",
+  },
+  {
+    src: assetPath("/general/equipe.webp"),
+    alt: "Equipe da Raullah Cookies reunida",
+  },
+  {
+    src: assetPath("/general/eventos-1.webp"),
+    alt: "Raullah Cookies em um evento na cidade",
+  },
+  {
+    src: assetPath("/general/eventos-2.webp"),
+    alt: "Participação da Raullah Cookies em evento",
+  },
+  {
+    src: assetPath("/general/eventos-3.webp"),
+    alt: "Momento da Raullah Cookies em evento da cidade",
+  },
+] as const;
+
 export const testimonials = [
   {
     quote:
@@ -155,19 +210,19 @@ export const faqs = [
   },
   {
     q: "Qual o tamanho dos cookies?",
-    a: "Grandes, estilo americano. O peso em gramas de cada sabor aparece no cardápio.",
+    a: "São no estilo americano e vão de 105g até 130g.",
   },
   {
     q: "Quanto tempo dura? Dá pra comer no dia seguinte?",
-    a: "É um cookie artesanal, feito pra comer fresco. A orientação de conservação e a validade vêm com o pedido.",
+    a: "É um cookie artesanal. Indicamos o consumo em até 5 dias, bem armazenados, como ensinamos na embalagem.",
   },
   {
     q: "Qual o prazo de entrega?",
-    a: "Entregamos em Campina Grande e região. O prazo exato aparece antes de você finalizar o pedido.",
+    a: "Entregamos em Campina Grande e região. São assados na hora, em aproximadamente 50 minutos, podendo sair antes. O prazo exato aparece antes de você finalizar o pedido.",
   },
   {
     q: "Posso montar uma caixa com sabores diferentes?",
-    a: "Pode, sim. É só escolher os sabores dentro da caixa no cardápio.",
+    a: "Pode, sim. De acordo com o que estiver disponível e com as características do combo que você escolher. Por exemplo: 2 clássicos e 2 recheados.",
   },
   {
     q: "Tem opção de retirada na loja?",
@@ -175,7 +230,7 @@ export const faqs = [
   },
   {
     q: "Quais as formas de pagamento?",
-    a: "Dinheiro, cartão e Pix, direto no cardápio.",
+    a: "Dinheiro apenas na nossa loja. No site: Pix e cartão.",
   },
   {
     q: "Faz encomenda para eventos ou presentes em quantidade?",

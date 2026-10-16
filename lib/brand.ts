@@ -53,9 +53,9 @@ export const store = {
   phone: "(00) 00000-0000",
   email: "contato@raullahcookies.com",
   hours: "Terça a domingo · 12h às 20h",
-  instagram: "https://instagram.com/",
-  ifood: "https://www.ifood.com.br/",
-  whatsapp: "https://wa.me/",
+  instagram: "https://www.instagram.com/raullahcookies/",
+  ifood: "https://www.ifood.com.br/delivery/campina-grande-pb/raullah-cookies--cookies-e-sobremesas-catole/fe3ef32e-2dc3-4b59-bb26-dcd346829672",
+  whatsapp: "https://api.whatsapp.com/send/?phone=5583981340630&text&type=phone_number&app_absent=0",
   googleReviews: googleReviewsUrl(),
   menuUrl: cardapioMenuUrl(),
 };

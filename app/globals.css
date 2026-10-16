@@ -201,6 +201,11 @@ summary::-webkit-details-marker {
   animation: icon-bob 3.4s ease-in-out infinite;
 }
 
+.mascot-cheer {
+  animation: mascot-cheer 2.8s ease-in-out infinite;
+  transform-origin: 50% 85%;
+}
+
 .lift-card {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -219,6 +224,7 @@ summary::-webkit-details-marker {
   .cart-slide,
   .cookie-swing,
   .icon-bob,
+  .mascot-cheer,
   .lift-card,
   .lift-card:hover {
     animation: none;
@@ -324,6 +330,16 @@ summary::-webkit-details-marker {
   }
   50% {
     transform: translateY(-4px);
+  }
+}
+
+@keyframes mascot-cheer {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
   }
 }
 
