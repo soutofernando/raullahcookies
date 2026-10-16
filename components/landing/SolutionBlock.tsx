@@ -15,12 +15,12 @@ export default function SolutionBlock() {
             className="seal-float size-16 rounded-full bg-navy object-cover sm:size-40"
           />
           <Image
-            src={assetPath("/brand/packaging-box.webp")}
-            alt="Caixa rosa da Raullah Cookies"
-            width={800}
-            height={800}
-            sizes="(min-width: 1024px) 28vw, 60vw"
-            className="aspect-square w-full rounded-[1.25rem] object-cover sm:rounded-[1.75rem]"
+            src={assetPath("/brand/caixa-marca.webp")}
+            alt="Caixa da Raullah Cookies"
+            width={960}
+            height={1280}
+            sizes="(min-width: 1024px) 28vw, 70vw"
+            className="h-auto w-full rounded-[1.25rem] sm:rounded-[1.75rem]"
           />
         </Rise>
         <Rise delay={120}>

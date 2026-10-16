@@ -20,9 +20,10 @@ import ReviewBlock from "@/components/landing/ReviewBlock";
 import CookieNotice from "@/components/landing/CookieNotice";
 import PlaceProvider from "@/components/landing/PlaceProvider";
 import { getCardapio } from "@/lib/cardapio";
+import { getGoogleReviews } from "@/lib/google-reviews";
 
 export default async function Home() {
-  const cardapio = await getCardapio();
+  const [cardapio, reviews] = await Promise.all([getCardapio(), getGoogleReviews()]);
   const place = cardapio?.place ?? null;
   return (
     <PlaceProvider place={place}>
@@ -47,7 +48,7 @@ export default async function Home() {
           <FounderBlock />
           <EventsBlock />
           <StoreBlock />
-          <TestimonialsBlock place={place} />
+          <TestimonialsBlock place={place} reviews={reviews} />
           <ShowcaseBlock catalog={cardapio?.catalog ?? null} place={place} />
         </Scene>
         <Scene>
