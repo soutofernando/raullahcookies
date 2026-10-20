@@ -2,10 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { cityMoments } from "@/lib/landing";
+import { eventQuoteHref } from "@/lib/brand";
+import { cityMoments, occasions } from "@/lib/landing";
+import OutboundLink from "@/components/landing/OutboundLink";
 import Rise from "@/components/landing/Rise";
 
-export default function EventsBlock() {
+export default function EventsBlock({ quoteHref }: { quoteHref?: string }) {
+  const quoteUrl = quoteHref || eventQuoteHref();
   const scroller = useRef<HTMLUListElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -44,13 +47,18 @@ export default function EventsBlock() {
   return (
     <section id="eventos" className="scroll-mt-24 py-10 sm:py-14">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <Rise className="flex items-end justify-between gap-4">
-          <h2 className="max-w-xl text-2xl leading-tight font-semibold tracking-tight sm:text-3xl">
-            Nós desafiamos sempre, participando de eventos em
-            <span className="mt-1 block font-script text-5xl leading-none font-normal text-blush sm:text-6xl">
-              Nossa cidade
-            </span>
-          </h2>
+        <Rise className="flex flex-wrap items-end justify-between gap-4">
+          <div className="max-w-xl">
+            <p className="text-[11px] font-semibold tracking-[0.28em] text-blush uppercase">
+              Encomendas
+            </p>
+            <h2 className="mt-3 text-2xl leading-tight font-semibold tracking-tight sm:text-4xl">
+              Para o evento que pede presença.
+              <span className="mt-1 block font-script text-5xl leading-none font-normal text-blush sm:text-6xl">
+                Alto padrão
+              </span>
+            </h2>
+          </div>
           <div className="flex shrink-0 gap-2">
             <button
               type="button"
@@ -71,6 +79,30 @@ export default function EventsBlock() {
               <Arrow direction="right" />
             </button>
           </div>
+        </Rise>
+
+        <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+          {occasions.map((item, index) => (
+            <li key={item.title}>
+              <Rise delay={index * 70}>
+                <article className="h-full rounded-[1.5rem] border border-cream/15 bg-cream/5 px-5 py-5">
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-cream/75">{item.text}</p>
+                </article>
+              </Rise>
+            </li>
+          ))}
+        </ul>
+
+        <Rise>
+          <OutboundLink
+            href={quoteUrl}
+            content="eventos-orcamento"
+            event="Lead"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-blush px-7 py-3.5 text-sm font-semibold text-navy transition-colors hover:bg-rose"
+          >
+            Pedir orçamento
+          </OutboundLink>
         </Rise>
 
         <ul

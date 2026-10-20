@@ -27,7 +27,7 @@ export default function SiteFooter() {
           />
           <p className="mt-5 font-script text-4xl">{brand.name}</p>
           <p className="mt-3 max-w-xs text-sm text-cream/70">
-            Cookies grandes, feitos à mão em Campina Grande. {brand.seal}.
+            Encomendas de alto padrão e delivery, feitos à mão em Campina Grande. {brand.seal}.
           </p>
         </div>
 

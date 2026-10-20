@@ -15,9 +15,9 @@ const script = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Raullah Cookies — cookie grande, macio por dentro, feito à mão",
+  title: "Raullah Cookies — encomendas, eventos e delivery",
   description:
-    "Crocante por fora, macio por dentro e do tamanho que cookie de verdade tem. Mais de 50 sabores em Campina Grande. Retirada ou delivery.",
+    "Cookies de alto padrão para casamentos, festas premium e eventos corporativos. E o delivery de sempre, em Campina Grande.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

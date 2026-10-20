@@ -203,37 +203,44 @@ export const urgencies = [
   },
 ] as const;
 
+export const occasions = [
+  {
+    title: "Casamentos",
+    text: "Mesa de doces, caixas para os convidados e uma apresentação à altura do dia.",
+  },
+  {
+    title: "Festas premium",
+    text: "Aniversários e celebrações em que o cookie entra como parte da festa.",
+  },
+  {
+    title: "Corporativo",
+    text: "Reuniões, kits e brindes com a mesma fornada da loja, em quantidade.",
+  },
+] as const;
+
 export const faqs = [
   {
-    q: "Como faço meu pedido?",
-    a: "É só clicar em “Ver o cardápio”, escolher os cookies ou a caixa e finalizar. Se preferir, também estamos no iFood.",
+    q: "Quero delivery rápido. Como peço?",
+    a: "Pelo cardápio: escolha os cookies ou a caixa e finalize. Entregamos em Campina Grande e região, ou você retira na loja. O prazo aparece antes de confirmar.",
+  },
+  {
+    q: "Fazem encomenda para casamento, festa ou evento corporativo?",
+    a: "Fazemos. Casamentos, festas premium e eventos corporativos saem sob orçamento. Chame no WhatsApp com a data, a quantidade e o tipo de evento.",
   },
   {
     q: "Qual o tamanho dos cookies?",
     a: "São no estilo americano e vão de 105g até 130g.",
   },
   {
-    q: "Quanto tempo dura? Dá pra comer no dia seguinte?",
+    q: "Quanto tempo dura?",
     a: "É um cookie artesanal. Indicamos o consumo em até 5 dias, bem armazenados, como ensinamos na embalagem.",
   },
   {
-    q: "Qual o prazo de entrega?",
-    a: "Entregamos em Campina Grande e região. São assados na hora, em aproximadamente 50 minutos, podendo sair antes. O prazo exato aparece antes de você finalizar o pedido.",
-  },
-  {
-    q: "Posso montar uma caixa com sabores diferentes?",
-    a: "Pode, sim. De acordo com o que estiver disponível e com as características do combo que você escolher. Por exemplo: 2 clássicos e 2 recheados.",
-  },
-  {
-    q: "Tem opção de retirada na loja?",
-    a: "Tem. Escolha retirada no pedido e passe no balcão. O endereço e o horário aparecem na confirmação.",
+    q: "Posso montar sabores diferentes?",
+    a: "Pode, de acordo com o que estiver disponível e com o combo escolhido. Em eventos, a seleção é combinada no orçamento.",
   },
   {
     q: "Quais as formas de pagamento?",
-    a: "Dinheiro apenas na nossa loja. No site: Pix e cartão.",
-  },
-  {
-    q: "Faz encomenda para eventos ou presentes em quantidade?",
-    a: "Fazemos. Chame no WhatsApp e a gente monta com você.",
+    a: "Dinheiro apenas na loja. No site: Pix e cartão.",
   },
 ] as const;

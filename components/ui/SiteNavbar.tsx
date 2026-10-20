@@ -199,7 +199,7 @@ export default function SiteNavbar() {
           event="InitiateCheckout"
           className="nav-item hidden shrink-0 rounded-full bg-blush px-4 py-2.5 text-[10px] font-semibold tracking-[0.16em] text-navy uppercase transition-colors hover:bg-rose lg:block lg:px-5 lg:text-xs lg:tracking-[0.2em]"
         >
-          Ver o cardápio
+          Pedir agora
         </OutboundLink>
 
         <button
@@ -245,7 +245,7 @@ export default function SiteNavbar() {
           event="InitiateCheckout"
           className="mobile-link mt-4 rounded-full bg-blush px-8 py-3 text-xs font-semibold tracking-[0.25em] text-navy uppercase"
         >
-          Ver o cardápio
+          Pedir agora
         </OutboundLink>
       </div>
     </>

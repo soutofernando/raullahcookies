@@ -2,50 +2,48 @@ import Image from "next/image";
 import { assetPath } from "@/lib/asset-path";
 import Rise from "@/components/landing/Rise";
 
+const beats = [
+  "Começou na cozinha, porque cookie de mercado não bastava.",
+  "Virou loja, mais de 50 sabores e milhares de pedidos.",
+  "Hoje entra em casamentos, festas e mesas corporativas com o mesmo cuidado.",
+] as const;
+
 export default function SolutionBlock() {
   return (
-    <section id="historia" className="scroll-mt-24 bg-cream text-navy">
-      <div className="mx-auto grid max-w-6xl items-center gap-4 px-1 py-1 sm:gap-10 sm:px-6 sm:py-24 lg:grid-cols-2">
-        <Rise className="grid grid-cols-[auto_1fr] items-end gap-3 sm:gap-4">
+    <section id="historia" className="scroll-mt-24 text-navy">
+      <div className="grid items-center gap-4 lg:grid-cols-[auto_1fr] lg:gap-8">
+        <Rise className="flex items-end gap-3">
           <Image
             src={assetPath("/brand/logo-badge.webp")}
             alt="Selo Homemade with love"
             width={220}
             height={220}
-            className="seal-float size-16 rounded-full bg-navy object-cover sm:size-40"
+            className="seal-float size-14 shrink-0 rounded-full bg-navy object-cover sm:size-24"
           />
           <Image
             src={assetPath("/brand/caixa-marca.webp")}
             alt="Caixa da Raullah Cookies"
-            width={960}
-            height={1280}
-            sizes="(min-width: 1024px) 28vw, 70vw"
-            className="h-auto w-full rounded-[1.25rem] sm:rounded-[1.75rem]"
+            width={640}
+            height={800}
+            sizes="(min-width: 1024px) 220px, 46vw"
+            className="h-36 w-auto rounded-[1.25rem] object-cover sm:h-52"
           />
         </Rise>
         <Rise delay={120}>
-          <p className="font-script text-4xl leading-none text-rose sm:text-6xl">
+          <p className="font-script text-4xl leading-none text-rose sm:text-5xl">
             Homemade with Love
           </p>
-          <h2 className="mt-2 text-xl font-semibold tracking-tight sm:mt-3 sm:text-3xl">
-            Nossa história
+          <h2 className="mt-2 text-xl font-semibold tracking-tight sm:text-3xl">
+            Da cozinha de casa ao alto padrão.
           </h2>
-          <div className="mt-3 space-y-2.5 text-sm leading-snug text-navy/80 sm:mt-6 sm:space-y-4 sm:text-base sm:leading-relaxed">
-            <p>
-              Tudo começou porque gostamos muito de cookies. Eu e meu filho Sebastian
-              consumíamos muito as opções disponíveis no mercado, e decidi criar minhas
-              próprias receitas.
-            </p>
-            <p>
-              Passei a levar meus cookies para compartilhar com as amigas nos encontros
-              da academia. Com o tempo, elas começaram a pedir que eu os levasse também
-              para comprar.
-            </p>
-            <p>
-              Foi assim, de maneira espontânea, que o que nasceu na minha cozinha
-              começou a se transformar na RAULLAH COOKIES.
-            </p>
-          </div>
+          <ol className="mt-4 space-y-2.5 text-sm leading-snug text-navy/80 sm:text-base">
+            {beats.map((beat, index) => (
+              <li key={beat} className="flex gap-3">
+                <span className="mt-0.5 font-semibold text-rose">{index + 1}</span>
+                <span>{beat}</span>
+              </li>
+            ))}
+          </ol>
         </Rise>
       </div>
     </section>

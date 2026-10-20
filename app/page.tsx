@@ -5,20 +5,16 @@ import HeroBlock from "@/components/landing/HeroBlock";
 import CinematicScroll from "@/components/landing/CinematicScroll";
 import FilmChapter from "@/components/landing/FilmChapter";
 import Scene from "@/components/landing/Scene";
-import PainBlock from "@/components/landing/PainBlock";
 import SolutionBlock from "@/components/landing/SolutionBlock";
-import BenefitsBlock from "@/components/landing/BenefitsBlock";
+import PathsBlock from "@/components/landing/PathsBlock";
 import ShowcaseBlock from "@/components/landing/ShowcaseBlock";
-import FounderBlock from "@/components/landing/FounderBlock";
 import EventsBlock from "@/components/landing/EventsBlock";
-import StoreBlock from "@/components/landing/StoreBlock";
 import TestimonialsBlock from "@/components/landing/TestimonialsBlock";
-import GuaranteeBlock from "@/components/landing/GuaranteeBlock";
 import FaqBlock from "@/components/landing/FaqBlock";
 import CloseBlock from "@/components/landing/CloseBlock";
-import ReviewBlock from "@/components/landing/ReviewBlock";
 import CookieNotice from "@/components/landing/CookieNotice";
 import PlaceProvider from "@/components/landing/PlaceProvider";
+import { eventQuoteHref } from "@/lib/brand";
 import { getCardapio } from "@/lib/cardapio";
 import { getGoogleReviews } from "@/lib/google-reviews";
 
@@ -34,29 +30,20 @@ export default async function Home() {
           <FilmChapter from="down" anchor="left">
             <HeroBlock place={place} />
           </FilmChapter>
-          <FilmChapter from="right" anchor="right">
-            <PainBlock />
-          </FilmChapter>
-          <FilmChapter from="up" anchor="center">
-            <BenefitsBlock />
-          </FilmChapter>
-          <FilmChapter from="down" anchor="center" tone="light">
+          <FilmChapter from="right" anchor="center" tone="light">
             <SolutionBlock />
           </FilmChapter>
         </CinematicScroll>
         <Scene>
-          <FounderBlock />
-          <EventsBlock />
-          <StoreBlock />
-          <TestimonialsBlock place={place} reviews={reviews} />
+          <PathsBlock place={place} />
           <ShowcaseBlock catalog={cardapio?.catalog ?? null} place={place} />
+          <EventsBlock quoteHref={eventQuoteHref(place?.whatsappUrl)} />
+          <TestimonialsBlock place={place} reviews={reviews} />
         </Scene>
         <Scene>
-          <GuaranteeBlock place={place} />
           <FaqBlock />
           <CloseBlock place={place} />
         </Scene>
-        <ReviewBlock />
       </main>
       <SiteFooter />
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50">

@@ -25,9 +25,9 @@ export const brand = {
 } as const;
 
 export const navLinks = [
-  { id: "cardapio", label: "Cardápio" },
-  { id: "historia", label: "A história" },
-  { id: "depoimentos", label: "Depoimentos" },
+  { id: "cardapio", label: "Sabores" },
+  { id: "historia", label: "A marca" },
+  { id: "eventos", label: "Eventos" },
   { id: "faq", label: "Dúvidas" },
 ] as const;
 
@@ -59,6 +59,20 @@ export const store = {
   googleReviews: googleReviewsUrl(),
   menuUrl: cardapioMenuUrl(),
 };
+
+const eventQuoteText =
+  "Olá! Quero um orçamento da Raullah Cookies para um evento (casamento, festa ou corporativo).";
+
+export function eventQuoteHref(base?: string | null) {
+  const href = base?.trim() || store.whatsapp;
+  try {
+    const url = new URL(href);
+    url.searchParams.set("text", eventQuoteText);
+    return url.toString();
+  } catch {
+    return href;
+  }
+}
 
 export const units = [
   {
@@ -222,17 +236,17 @@ export const footerNav = [
   {
     title: "Navegar",
     links: [
-      { label: "Cardápio", id: "cardapio" },
-      { label: "A história", id: "historia" },
-      { label: "Benefícios", id: "beneficios" },
+      { label: "Sabores", id: "cardapio" },
+      { label: "A marca", id: "historia" },
+      { label: "Eventos", id: "eventos" },
       { label: "Depoimentos", id: "depoimentos" },
     ],
   },
   {
     title: "Pedido",
     links: [
-      { label: "Caixas", id: "caixas" },
-      { label: "Garantia", id: "garantia" },
+      { label: "Delivery", id: "caminhos" },
+      { label: "Orçamento", id: "eventos" },
       { label: "Dúvidas", id: "faq" },
       { label: "Privacidade", id: "privacidade" },
     ],

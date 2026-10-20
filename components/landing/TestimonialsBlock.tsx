@@ -28,7 +28,7 @@ function QuoteCard({ quote, name, detail, href }: QuoteItem) {
 function QuoteColumn({ items, reverse = false }: { items: QuoteItem[]; reverse?: boolean }) {
   const loop = [...items, ...items];
   return (
-    <div className="quote-window h-[32rem] overflow-hidden">
+    <div className="quote-window h-64 overflow-hidden sm:h-80">
       <ul className={`flex flex-col gap-4 ${reverse ? "quote-fall" : "quote-rise"}`}>
         {loop.map((item, index) => (
           <QuoteCard key={`${item.name}-${index}`} {...item} />
@@ -84,7 +84,7 @@ export default function TestimonialsBlock({
       <div className="mx-auto max-w-6xl">
         <Rise className="flex flex-wrap items-end justify-between gap-4">
           <h2 className="max-w-md text-3xl font-semibold tracking-tight sm:text-4xl">
-            Quem já pediu, pede de novo.
+            Quem prova, volta a pedir.
           </h2>
           <div className="flex flex-wrap items-center gap-2">
             <RatingPill rating="4,9" label="iFood">
